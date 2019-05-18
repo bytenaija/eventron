@@ -129,6 +129,7 @@ class App extends React.Component {
             event: event.title
           });
         }
+
         this.setState({
           ...this.state,
           places,
