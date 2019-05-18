@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Map from "./Map";
 import moment from "moment";
 
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
-import Autocomplete from "./AutoComplete";
+
 const EventView = props => {
   return (
     <Modal
