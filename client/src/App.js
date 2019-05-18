@@ -1,9 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Map from "./components/Map";
 import EventCreation from "./components/EventCreation";
-import { Button, Alert } from "reactstrap";
+import { Button } from "reactstrap";
 import EventCalendar from "./components/EventCalendar";
 import EventView from "./components/EventView";
 import axios from "axios";
@@ -32,7 +31,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:5000/events").then(res => {
+    axios.get("https://eventron-api.herokuapp.com/events").then(res => {
       let {
         data: { events }
       } = res;
@@ -105,7 +104,7 @@ class App extends React.Component {
   addEvent = details => {
     this.setState({ ...this.state, errorMessage: "" });
     axios
-      .post("http://localhost:5000/events", details)
+      .post("https://eventron-api.herokuapp.com/events", details)
       .then(res => {
         let {
           data: { event }
@@ -129,6 +128,7 @@ class App extends React.Component {
             event: event.title
           });
         }
+
         this.setState({
           ...this.state,
           places,
